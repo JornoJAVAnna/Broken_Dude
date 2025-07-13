@@ -5,6 +5,7 @@ import said.team.lead.broken_dude.modules.Person;
 import said.team.lead.broken_dude.services.PersonService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/person")
@@ -22,12 +23,12 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public Person getPersonById(@PathVariable int id) {
+    public Optional<Person> getPersonById(@PathVariable int id) {
         return personService.findOne(id);
     }
 
     @PostMapping("/create")
-    public void addPerson(Person person) {
+    public void addPerson(@RequestBody Person person) {
         personService.save(person);
     }
 

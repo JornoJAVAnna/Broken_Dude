@@ -22,7 +22,7 @@ public class Business {
     @Column(name = "income")
     private int income;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "owner_id")
     private Person owner;
 

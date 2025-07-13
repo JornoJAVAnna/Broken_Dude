@@ -24,8 +24,8 @@ public class Person {
     @Column(name = "money")
     private int money;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private List<Business> businesses;
+    @OneToOne(mappedBy = "owner")
+    private Business business;
 
     public Person(String name, int money) {
         this.name = name;
